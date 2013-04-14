@@ -1,5 +1,6 @@
-sample_osgi/.idea
+.idea
+sample.iml
 sample_osgi/target
-sample_dns/.idea
+sample_osgi/sample_osgi.iml
 sample_dns/target
 sample_dns/sample_dns.iml
