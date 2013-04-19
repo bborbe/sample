@@ -4,3 +4,5 @@ sample_osgi/target
 sample_osgi/sample_osgi.iml
 sample_dns/target
 sample_dns/sample_dns.iml
+sample_guitest/target
+sample_guitest/sample_guitest.iml

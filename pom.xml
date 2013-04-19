@@ -10,8 +10,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-
 		<module>sample_dns</module>
 		<module>sample_osgi</module>
+		<module>sample_guitest</module>
 	</modules>
 </project>
