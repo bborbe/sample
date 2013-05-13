@@ -11,6 +11,7 @@
 
 	<modules>
 		<module>sample_dns</module>
+		<module>sample_jdom2</module>
 		<module>sample_osgi</module>
 		<module>sample_guitest</module>
 	</modules>
