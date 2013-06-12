@@ -8,8 +8,10 @@ public class EventBusSample {
 	public static void main(String[] args) {
 		EventBus eventBus = new EventBus();
 
-		System.out.println("register");
-		eventBus.register(new EventBusChangeRecorder());
+		System.out.println("register AB");
+		eventBus.register(new BlaAb());
+		System.out.println("register C");
+		eventBus.register(new BlaC());
 
 		System.out.println("post a");
 		eventBus.post(new EventA());
@@ -24,7 +26,7 @@ public class EventBusSample {
 
 }
 
-class EventBusChangeRecorder {
+class BlaAb {
 
 	@Subscribe
 	public void methodA(EventA e) {
@@ -34,6 +36,15 @@ class EventBusChangeRecorder {
 	@Subscribe
 	public void methodB(EventB e) {
 		System.out.println("methodB");
+	}
+
+}
+
+class BlaC {
+
+	@Subscribe
+	public void methodC(EventC e) {
+		System.out.println("methodC");
 	}
 
 }
