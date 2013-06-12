@@ -15,5 +15,6 @@
 		<module>sample_osgi</module>
 		<module>sample_guitest</module>
 		<module>sample_eventbus</module>
+		<module>sample_mapreduce_wordcount</module>
 	</modules>
 </project>

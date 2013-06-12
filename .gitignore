@@ -8,3 +8,7 @@ sample_guitest/target
 sample_guitest/sample_guitest.iml
 sample_jdom2/target
 sample_jdom2/sample_jdom2.iml
+sample_eventbus/sample_eventbus.iml
+sample_eventbus/target
+sample_mapreduce_wordcount/sample_mapreduce_wordcount.iml
+sample_mapreduce_wordcount/target/
