@@ -12,3 +12,5 @@ sample_eventbus/sample_eventbus.iml
 sample_eventbus/target
 sample_mapreduce_wordcount/sample_mapreduce_wordcount.iml
 sample_mapreduce_wordcount/target/
+sample_xmpp/target
+sample_xmpp/sample_xmpp.iml

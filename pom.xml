@@ -16,5 +16,6 @@
 		<module>sample_guitest</module>
 		<module>sample_eventbus</module>
 		<module>sample_mapreduce_wordcount</module>
+		<module>sample_xmpp</module>
 	</modules>
 </project>
