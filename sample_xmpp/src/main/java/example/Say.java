@@ -1,7 +1,5 @@
 package example;
 
-import java.util.Collection;
-
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.ChatManagerListener;
@@ -16,17 +14,14 @@ import org.jivesoftware.smack.packet.Message.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collection;
+
 public class Say {
 
 	private static final Logger logger = LoggerFactory.getLogger("sample");
 
-	private final String serverHost = "jabber.rp.seibert-media.net";
-
-	private final String username = "bborbe";
-
-	private final String passwort = "xxx";
-
 	public void run() throws XMPPException, InterruptedException {
+		final String serverHost = "jabber.rp.seibert-media.net";
 		final ConnectionConfiguration connectionConfiguration = new ConnectionConfiguration(serverHost);
 		connectionConfiguration.setCompressionEnabled(false);
 		connectionConfiguration.setSASLAuthenticationEnabled(true);
@@ -34,6 +29,8 @@ public class Say {
 		final XMPPConnection connection = new XMPPConnection(connectionConfiguration);
 		connection.connect();
 		System.err.println("isConnected: " + connection.isConnected());
+		final String passwort = "xxx";
+		final String username = "bborbe";
 		connection.login(username, passwort);
 		System.err.println("isAuthenticated: " + connection.isAuthenticated());
 		final ChatManager chatManager = connection.getChatManager();

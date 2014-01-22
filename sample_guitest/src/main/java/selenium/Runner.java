@@ -10,8 +10,8 @@ public class Runner {
 
 	private static final Logger logger = LoggerFactory.getLogger(Runner.class);
 
-	public static void main(String[] args) {
-		Runner runner = new Runner();
+	public static void main(final String[] args) {
+		final Runner runner = new Runner();
 		runner.run();
 	}
 

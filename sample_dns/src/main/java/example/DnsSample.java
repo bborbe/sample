@@ -7,23 +7,21 @@ import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TXTRecord;
 import org.xbill.DNS.Type;
 
-import java.util.Iterator;
-
 public class DnsSample {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		try {
-			Lookup lookup = new Lookup("www.benjamin-borbe.de", Type.ANY);
+			final Lookup lookup = new Lookup("www.benjamin-borbe.de", Type.ANY);
 			lookup.setResolver(new SimpleResolver("ns.rocketnews.de"));
 			lookup.run();
 			if (lookup.getResult() == Lookup.SUCCESSFUL) {
-				Record[] records = lookup.run();
-				for (Record record : records) {
+				final Record[] records = lookup.run();
+				for (final Record record : records) {
 					if (record instanceof TXTRecord) {
-						TXTRecord txt = (TXTRecord) record;
+						final TXTRecord txt = (TXTRecord) record;
 
-						for (Iterator j = txt.getStrings().iterator(); j.hasNext(); ) {
-							System.out.println((String) j.next());
+						for (final Object o : txt.getStrings()) {
+							System.out.println((String) o);
 						}
 					} else if (record instanceof ARecord) {
 						System.out.println(((ARecord) record).getAddress().getHostAddress());

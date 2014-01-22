@@ -5,8 +5,8 @@ import com.google.common.eventbus.Subscribe;
 
 public class EventBusSample {
 
-	public static void main(String[] args) {
-		EventBus eventBus = new EventBus();
+	public static void main(final String[] args) {
+		final EventBus eventBus = new EventBus();
 
 		System.out.println("register AB");
 		eventBus.register(new BlaAb());
@@ -29,12 +29,12 @@ public class EventBusSample {
 class BlaAb {
 
 	@Subscribe
-	public void methodA(EventA e) {
+	public void methodA(final EventA e) {
 		System.out.println("methodA");
 	}
 
 	@Subscribe
-	public void methodB(EventB e) {
+	public void methodB(final EventB e) {
 		System.out.println("methodB");
 	}
 
@@ -43,7 +43,7 @@ class BlaAb {
 class BlaC {
 
 	@Subscribe
-	public void methodC(EventC e) {
+	public void methodC(final EventC e) {
 		System.out.println("methodC");
 	}
 

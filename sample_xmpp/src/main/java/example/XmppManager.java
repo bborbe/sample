@@ -3,12 +3,12 @@ package example;
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.ChatManager;
 import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.Roster;
 import org.jivesoftware.smack.SmackConfiguration;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
-import org.jivesoftware.smack.ConnectionConfiguration.SecurityMode;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.Presence.Type;
@@ -20,8 +20,6 @@ public class XmppManager {
 	private final String server;
 
 	private final int port;
-
-	private ConnectionConfiguration config;
 
 	private XMPPConnection connection;
 
@@ -40,7 +38,7 @@ public class XmppManager {
 
 		SmackConfiguration.setPacketReplyTimeout(packetReplyTimeout);
 
-		config = new ConnectionConfiguration(server, port);
+		final ConnectionConfiguration config = new ConnectionConfiguration(server, port);
 		config.setSASLAuthenticationEnabled(false);
 		config.setSecurityMode(SecurityMode.disabled);
 

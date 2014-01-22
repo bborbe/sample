@@ -9,11 +9,11 @@ import java.io.StringReader;
 
 public class Jdom2Sample {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		try {
-			String myxml = "<root><child>kid</child></root>";
-			SAXBuilder sb = new SAXBuilder();
-			Document doc = sb.build(new StringReader(myxml));
+			final String myxml = "<root><child>kid</child></root>";
+			final SAXBuilder sb = new SAXBuilder();
+			final Document doc = sb.build(new StringReader(myxml));
 			System.out.println("child-size: " + doc.getRootElement().getChildren().size());
 		} catch (JDOMException e) {
 			e.printStackTrace();

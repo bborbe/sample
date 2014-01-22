@@ -71,29 +71,29 @@ public class WordCountCassandra extends Configured implements Tool {
 
 		private final static IntWritable one = new IntWritable(1);
 
-		private Text word = new Text();
+		private final Text word = new Text();
 
 		private ByteBuffer sourceColumn;
 
 		String punctuationsToStrip[] = {"\"", "'", ",", ";", "!", ":", "\\?", "\\.", "\\(", "\\-", "\\[", "\\)", "\\]"};
 
-		protected void setup(Mapper.Context context) throws IOException, InterruptedException {
+		protected void setup(final Mapper.Context context) throws IOException, InterruptedException {
 			sourceColumn = ByteBufferUtil.bytes(context.getConfiguration().get("columnname"));
 		}
 
-		public void map(ByteBuffer key, SortedMap<ByteBuffer, IColumn> columns, Context context) throws IOException, InterruptedException {
+		public void map(final ByteBuffer key, final SortedMap<ByteBuffer, IColumn> columns, final Context context) throws IOException, InterruptedException {
 			// Our slice predicate contains only one column. We fetch it here
-			IColumn column = columns.get(sourceColumn);
+			final IColumn column = columns.get(sourceColumn);
 			if (column == null)
 				return;
 			String value = ByteBufferUtil.string(column.value());
 
 			value = value.toLowerCase();
-			for (String pattern : punctuationsToStrip) {
+			for (final String pattern : punctuationsToStrip) {
 				value = value.replaceAll(pattern, "");
 			}
 
-			StringTokenizer itr = new StringTokenizer(value);
+			final StringTokenizer itr = new StringTokenizer(value);
 			while (itr.hasMoreTokens()) {
 				word.set(itr.nextToken());
 				context.write(word, one);
@@ -105,37 +105,37 @@ public class WordCountCassandra extends Configured implements Tool {
 
 		private ByteBuffer outputKey;
 
-		protected void setup(Reducer.Context context) throws IOException, InterruptedException {
+		protected void setup(final Reducer.Context context) throws IOException, InterruptedException {
 			// The row key is the name of the column from which we read the text
 			outputKey = ByteBufferUtil.bytes(context.getConfiguration().get("columnname"));
 		}
 
-		public void reduce(Text word, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+		public void reduce(final Text word, final Iterable<IntWritable> values, final Context context) throws IOException, InterruptedException {
 			int sum = 0;
-			for (IntWritable val : values) {
+			for (final IntWritable val : values) {
 				sum += val.get();
 			}
 			context.write(outputKey, Collections.singletonList(getMutation(word, sum)));
 		}
 
 		// See Cassandra API (http://wiki.apache.org/cassandra/API)
-		private static Mutation getMutation(Text word, int sum) {
-			Column c = new Column();
+		private static Mutation getMutation(final Text word, final int sum) {
+			final Column c = new Column();
 			c.setName(Arrays.copyOf(word.getBytes(), word.getLength()));
 			c.setValue(ByteBufferUtil.bytes(String.valueOf(sum)));
 			c.setTimestamp(System.currentTimeMillis());
 
-			Mutation m = new Mutation();
+			final Mutation m = new Mutation();
 			m.setColumn_or_supercolumn(new ColumnOrSuperColumn());
 			m.column_or_supercolumn.setColumn(c);
 			return m;
 		}
 	}
 
-	public int run(String[] args) throws Exception {
+	public int run(final String[] args) throws Exception {
 		getConf().set("columnname", INPUT_COLUMN_NAME);
 
-		Job job = new Job(getConf(), JOB_NAME);
+		final Job job = new Job(getConf(), JOB_NAME);
 		job.setJarByClass(WordCountCassandra.class);
 
 		job.setMapperClass(TokenizerMapper.class);
@@ -163,7 +163,7 @@ public class WordCountCassandra extends Configured implements Tool {
 		ConfigHelper.setOutputPartitioner(job.getConfiguration(), PARTITIONER);
 
 		// Set the predicate that determines what columns will be selected from each row
-		SlicePredicate predicate = new SlicePredicate().setColumn_names(Arrays.asList(ByteBufferUtil.bytes(INPUT_COLUMN_NAME)));
+		final SlicePredicate predicate = new SlicePredicate().setColumn_names(Arrays.asList(ByteBufferUtil.bytes(INPUT_COLUMN_NAME)));
 		// The "get_slice" (see Cassandra's API) operation will be applied on each row of the ColumnFamily.
 		// Each row will be handled by one Map job.
 		ConfigHelper.setInputSlicePredicate(job.getConfiguration(), predicate);
@@ -172,7 +172,7 @@ public class WordCountCassandra extends Configured implements Tool {
 		return job.isSuccessful() ? 0 : 1;
 	}
 
-	public static void main(String[] args) throws Exception {
+	public static void main(final String[] args) throws Exception {
 		// Let ToolRunner handle generic command-line options
 		ToolRunner.run(new Configuration(), new WordCountCassandra(), args);
 		System.exit(0);
