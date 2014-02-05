@@ -10,6 +10,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>sample_pageobject</module>
 		<module>sample_mongodb</module>
 		<module>sample_dns</module>
 		<module>sample_jdom2</module>

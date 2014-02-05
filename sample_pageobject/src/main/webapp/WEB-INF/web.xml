@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 version="2.4"
+				 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<description>Sample PageObject</description>
+	<display-name>Sample PageObject</display-name>
+	<distributable/>
+	<servlet>
+		<servlet-name>page1</servlet-name>
+		<servlet-class>example.Page1Servlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>page2</servlet-name>
+		<servlet-class>example.Page2Servlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>page3</servlet-name>
+		<servlet-class>example.Page3Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>page1</servlet-name>
+		<url-pattern>/page1</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>page2</servlet-name>
+		<url-pattern>/page2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>page3</servlet-name>
+		<url-pattern>/page3</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>page1</welcome-file>
+	</welcome-file-list>
+</web-app>
