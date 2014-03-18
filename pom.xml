@@ -19,5 +19,6 @@
 		<module>sample_eventbus</module>
 		<module>sample_mapreduce_wordcount</module>
 		<module>sample_xmpp</module>
+		<module>sample_gwt</module>
 	</modules>
 </project>

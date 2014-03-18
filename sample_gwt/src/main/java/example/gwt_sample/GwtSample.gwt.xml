@@ -1,0 +1,29 @@
+<module>
+	<!-- Inherit the core Web Toolkit stuff.  -->
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name="com.google.gwt.xml.XML"/>
+	<inherits name="com.google.gwt.json.JSON"/>
+
+	<!-- Inherit the default GWT style sheet.  You can change       -->
+	<!-- the theme of your GWT application by uncommenting          -->
+	<!-- any one of the following lines.                            -->
+	<inherits name="com.google.gwt.user.theme.standard.Standard"/>
+	<!-- <inherits name="com.google.gwt.user.theme.chrome.Chrome"/> -->
+	<!-- <inherits name="com.google.gwt.user.theme.dark.Dark"/>     -->
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class="example.gwt_sample.client.GwtSampleEntryPoint"/>
+
+	<!-- Public path -->
+	<public path="public"/>
+
+	<!-- Additional source path -->
+	<source path="domain"/>
+	<source path="client"/>
+
+	<!-- example service servlet -->
+	<servlet path="/MyService" class="example.gwt_sample.server.MyServiceImpl"/>
+
+	<stylesheet src="GwtSample.css"/>
+
+</module>
