@@ -14,3 +14,7 @@ sample_mapreduce_wordcount/sample_mapreduce_wordcount.iml
 sample_mapreduce_wordcount/target/
 sample_xmpp/target
 sample_xmpp/sample_xmpp.iml
+sample_mongodb/sample_mongodb.iml
+sample_mongodb/target/
+sample_pageobject/sample_pageobject.iml
+sample_pageobject/target/

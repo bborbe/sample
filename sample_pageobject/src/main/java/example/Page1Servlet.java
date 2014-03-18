@@ -14,5 +14,8 @@ public class Page1Servlet extends HttpServlet {
 		resp.setContentType("text/plain");
 		final PrintWriter writer = resp.getWriter();
 		writer.println("hello world");
+
+		// get page1
+		//
 	}
 }
