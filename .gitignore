@@ -20,3 +20,4 @@ sample_pageobject/sample_pageobject.iml
 sample_pageobject/target/
 sample_gwt/target
 sample_gwt/sample_gwt.iml
+sample_gwt/WEB-INF/

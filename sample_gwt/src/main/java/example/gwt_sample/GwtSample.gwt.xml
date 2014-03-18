@@ -23,7 +23,6 @@
 
 	<!-- example service servlet -->
 	<servlet path="/MyService" class="example.gwt_sample.server.MyServiceImpl"/>
-
 	<stylesheet src="GwtSample.css"/>
 
 </module>

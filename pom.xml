@@ -9,6 +9,9 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+
+
+
 	<modules>
 		<module>sample_pageobject</module>
 		<module>sample_mongodb</module>
