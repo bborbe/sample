@@ -1,5 +1,7 @@
 .idea
 sample.iml
+sample_jbehave/target
+sample_jbehave/sample_jbehave.iml
 sample_osgi/target
 sample_osgi/sample_osgi.iml
 sample_dns/target
