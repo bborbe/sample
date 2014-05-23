@@ -10,7 +10,6 @@
 	<artifactId>sample_gwt</artifactId>
 
 	<packaging>war</packaging>
-	<name>maven-gwt-sample</name>
 	<properties>
 		<gwt.version>2.6.0</gwt.version>
 		<maven.compiler.source>1.6</maven.compiler.source>
