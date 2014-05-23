@@ -1,5 +1,7 @@
 .idea
 sample.iml
+sample_jpa/target
+sample_jpa/sample_jpa.iml
 sample_jbehave/target
 sample_jbehave/sample_jbehave.iml
 sample_osgi/target
@@ -23,3 +25,5 @@ sample_pageobject/target/
 sample_gwt/target
 sample_gwt/sample_gwt.iml
 sample_gwt/WEB-INF/
+simpleDb
+derby.log

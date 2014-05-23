@@ -3,14 +3,34 @@
 				 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
-	<groupId>sample_jbehave</groupId>
+	<parent>
+		<artifactId>sample</artifactId>
+		<groupId>de.benjaminborbe</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
 	<artifactId>sample_jbehave</artifactId>
-	<version>1.0-SNAPSHOT</version>
 
+	<build>
+		<testResources>
+			<testResource>
+				<directory>src/test/scenarios</directory>
+				<includes>
+					<include>**/*.scenario</include>
+				</includes>
+			</testResource>
+		</testResources>
+	</build>
 	<dependencies>
-
-
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>3.3.2</version>
+		</dependency>
 	</dependencies>
-
 </project>
