@@ -22,6 +22,7 @@
 		<module>sample_gwt</module>
 		<module>sample_jpa</module>
 		<module>sample_phash</module>
+		<module>sample_servlet</module>
 	</modules>
 	<build>
 		<plugins>
