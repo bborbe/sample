@@ -75,7 +75,7 @@ public class WordCountCassandra extends Configured implements Tool {
 
 		private ByteBuffer sourceColumn;
 
-		String punctuationsToStrip[] = {"\"", "'", ",", ";", "!", ":", "\\?", "\\.", "\\(", "\\-", "\\[", "\\)", "\\]"};
+		final String[] punctuationsToStrip = {"\"", "'", ",", ";", "!", ":", "\\?", "\\.", "\\(", "\\-", "\\[", "\\)", "\\]"};
 
 		protected void setup(final Mapper.Context context) throws IOException, InterruptedException {
 			sourceColumn = ByteBufferUtil.bytes(context.getConfiguration().get("columnname"));

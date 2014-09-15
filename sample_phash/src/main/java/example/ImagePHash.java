@@ -18,7 +18,7 @@ public class ImagePHash {
 
 	private int smallerSize = 8;
 
-	private ColorConvertOp colorConvert = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+	private final ColorConvertOp colorConvert = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
 
 	private double[] c;
 
@@ -26,18 +26,18 @@ public class ImagePHash {
 		initCoefficients();
 	}
 
-	public ImagePHash(int size, int smallerSize) {
+	public ImagePHash(final int size, final int smallerSize) {
 		this.size = size;
 		this.smallerSize = smallerSize;
 
 		initCoefficients();
 	}
 
-	private static int getBlue(BufferedImage img, int x, int y) {
+	private static int getBlue(final BufferedImage img, final int x, final int y) {
 		return (img.getRGB(x, y)) & 0xff;
 	}
 
-	public int distance(String s1, String s2) {
+	public int distance(final String s1, final String s2) {
 		int counter = 0;
 		for (int k = 0; k < s1.length(); k++) {
 			if (s1.charAt(k) != s2.charAt(k)) {
@@ -48,7 +48,7 @@ public class ImagePHash {
 	}
 
 	// Returns a 'binary string' (like. 001010111011100010) which is easy to do a hamming distance on.
-	public String getHash(InputStream is) throws Exception {
+	public String getHash(final InputStream is) throws Exception {
 		BufferedImage img = ImageIO.read(is);
 
         /*
@@ -61,13 +61,13 @@ public class ImagePHash {
 		img = resize(img, size, size);
 
         /*
-         * 2. Reduce color.
+				 * 2. Reduce color.
          * The image is reduced to a grayscale just to further simplify
          * the number of computations.
          */
 		img = grayscale(img);
 
-		double[][] vals = new double[size][size];
+		final double[][] vals = new double[size][size];
 
 		for (int x = 0; x < img.getWidth(); x++) {
 			for (int y = 0; y < img.getHeight(); y++) {
@@ -82,7 +82,7 @@ public class ImagePHash {
          * a 32x32 DCT.
          */
 		//long start = System.currentTimeMillis();
-		double[][] dctVals = applyDCT(vals);
+		final double[][] dctVals = applyDCT(vals);
 		//System.out.println("DCT: " + (System.currentTimeMillis() - start));
 
         /*
@@ -107,7 +107,7 @@ public class ImagePHash {
 		}
 		total -= dctVals[0][0];
 
-		double avg = total / (double) ((smallerSize * smallerSize) - 1);
+		final double avg = total / (double) ((smallerSize * smallerSize) - 1);
 
         /*
          * 6. Further reduce the DCT.
@@ -133,9 +133,9 @@ public class ImagePHash {
 		return hash;
 	}
 
-	private BufferedImage resize(BufferedImage image, int width, int height) {
-		BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		Graphics2D g = resizedImage.createGraphics();
+	private BufferedImage resize(final BufferedImage image, final int width, final int height) {
+		final BufferedImage resizedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		final Graphics2D g = resizedImage.createGraphics();
 		g.drawImage(image, 0, 0, width, height, null);
 		g.dispose();
 		return resizedImage;
@@ -143,7 +143,7 @@ public class ImagePHash {
 
 	// DCT function stolen from http://stackoverflow.com/questions/4240490/problems-with-dct-and-idct-algorithm-in-java
 
-	private BufferedImage grayscale(BufferedImage img) {
+	private BufferedImage grayscale(final BufferedImage img) {
 		colorConvert.filter(img, img);
 		return img;
 	}
@@ -157,10 +157,10 @@ public class ImagePHash {
 		c[0] = 1 / Math.sqrt(2.0);
 	}
 
-	private double[][] applyDCT(double[][] f) {
-		int N = size;
+	private double[][] applyDCT(final double[][] f) {
+		final int N = size;
 
-		double[][] F = new double[N][N];
+		final double[][] F = new double[N][N];
 		for (int u = 0; u < N; u++) {
 			for (int v = 0; v < N; v++) {
 				double sum = 0.0;

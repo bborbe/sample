@@ -15,9 +15,7 @@ public class Jdom2Sample {
 			final SAXBuilder sb = new SAXBuilder();
 			final Document doc = sb.build(new StringReader(myxml));
 			System.out.println("child-size: " + doc.getRootElement().getChildren().size());
-		} catch (JDOMException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (JDOMException | IOException e) {
 			e.printStackTrace();
 		}
 	}

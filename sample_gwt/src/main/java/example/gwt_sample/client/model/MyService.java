@@ -8,19 +8,19 @@ import com.google.gwt.user.client.rpc.ServiceDefTarget;
 @RemoteServiceRelativePath("MyService")
 public interface MyService extends RemoteService {
 
-    public String upperCase(String s);
+	public String upperCase(String s);
 
-    public static class Util {
+	public static class Util {
 
-        private static MyServiceAsync instance;
+		private static MyServiceAsync instance;
 
-        public static MyServiceAsync getInstance() {
-            if (instance == null) {
-                instance = (MyServiceAsync) GWT.create(MyService.class);
-                ServiceDefTarget target = (ServiceDefTarget) instance;
-                target.setServiceEntryPoint(GWT.getModuleBaseURL() + "MyService");
-            }
-            return instance;
-        }
-    }
+		public static MyServiceAsync getInstance() {
+			if (instance == null) {
+				instance = (MyServiceAsync) GWT.create(MyService.class);
+				final ServiceDefTarget target = (ServiceDefTarget) instance;
+				target.setServiceEntryPoint(GWT.getModuleBaseURL() + "MyService");
+			}
+			return instance;
+		}
+	}
 }
