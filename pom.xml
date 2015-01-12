@@ -23,6 +23,7 @@
 		<module>sample_jpa</module>
 		<module>sample_phash</module>
 		<module>sample_servlet</module>
+		<module>sample_guice_servlet</module>
 	</modules>
 	<build>
 		<plugins>
