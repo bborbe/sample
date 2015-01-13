@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8"/>
+	<meta http-equiv="Content-Language" content="en"/>
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico"/>
+	<link type="text/css" href="css/style.css" rel="stylesheet"/>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/filters.js"></script>
+	<script src="js/services.js"></script>
+</head>
+<body>
+
+<ul ng-controller="ResultListCtrl">
+	<li ng-repeat="result in results">
+		{{result.success}} {{result.name}}
+	</li>
+</ul>
+
+</body>
+</html>
