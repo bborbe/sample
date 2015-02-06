@@ -23,11 +23,11 @@ public class ResultRestService {
 			createResult("foo3", "test1", true), createResult("foo3", "test2", true), createResult("foo3", "test3", false)
 		);
 
-		ObjectMapper mapper = new ObjectMapper();
+		final ObjectMapper mapper = new ObjectMapper();
 		return Response.ok(mapper.valueToTree(list).toString()).build();
 	}
 
-	private Result createResult(String foo, final String name, Boolean success) {
+	private Result createResult(final String foo, final String name, final Boolean success) {
 		final Result result = new Result();
 		result.setName(name);
 		result.setSuccess(success);

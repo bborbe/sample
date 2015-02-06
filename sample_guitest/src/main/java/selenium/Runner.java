@@ -44,7 +44,7 @@ public class Runner {
 			logger.debug("windowHandle: " + driver.getWindowHandle());
 			logger.debug("windowHandles: " + driver.getWindowHandles());
 
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			logger.error("Exception", e);
 		} finally {
 			if (driver != null)

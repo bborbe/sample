@@ -15,7 +15,7 @@ public class Main {
 			final String hash2 = getHash(imagePHash, "/Users/bborbe/Downloads/test/2.jpg");
 			System.out.println("hash2: " + hash2);
 			System.out.println("distance: " + imagePHash.distance(hash1, hash2));
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			logger.error(e.getClass().getName(), e);
 		}
 	}

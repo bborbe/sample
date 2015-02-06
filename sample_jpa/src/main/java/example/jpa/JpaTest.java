@@ -26,7 +26,7 @@ public class JpaTest {
 		tx.begin();
 		try {
 			test.createEmployees();
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 		}
 		tx.commit();

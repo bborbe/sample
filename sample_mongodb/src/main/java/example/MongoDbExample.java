@@ -14,9 +14,7 @@ public class MongoDbExample {
 	public static void main(final String[] args) throws UnknownHostException {
 		final DB db = Mongo.connect(new DBAddress("localhost"));
 		final Set<String> collectionNames = db.getCollectionNames();
-		for (final String c : collectionNames) {
-			System.err.println(c);
-		}
+		collectionNames.forEach(System.err::println);
 		final DBCollection collection = db.getCollection("test");
 		System.err.println("count: " + collection.count());
 		final BasicDBObject doc = new BasicDBObject("name", "MongoDB").

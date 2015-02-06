@@ -9,10 +9,8 @@ public class MyServletModule extends ServletModule {
 
 	@Override
 	protected void configureServlets() {
-		ResourceConfig rc = new PackagesResourceConfig("example.rest");
-		for (Class<?> resource : rc.getClasses()) {
-			bind(resource);
-		}
+		final ResourceConfig rc = new PackagesResourceConfig("example.rest");
+		rc.getClasses().forEach(this::bind);
 
 		serve("/rest/*").with(GuiceContainer.class);
 	}
