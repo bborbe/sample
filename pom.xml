@@ -25,7 +25,11 @@
 		<module>sample_servlet</module>
 		<module>sample_guice_servlet</module>
 		<module>sample_jaxws</module>
+		<module>sample_spring_security</module>
 	</modules>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<build>
 		<plugins>
 			<plugin>
