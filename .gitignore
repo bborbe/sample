@@ -12,7 +12,8 @@ sample_mongodb/target/
 sample_pageobject/target/
 sample_gwt/target
 sample_gwt/WEB-INF/
+sample_guice/target
+sample_jmx/target
 simpleDb
 derby.log
-sample_guice/target
 *.iml
