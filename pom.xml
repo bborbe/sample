@@ -23,11 +23,12 @@
     <module>sample_jpa</module>
     <module>sample_phash</module>
     <module>sample_servlet</module>
-    <module>sample_guice_servlet</module>
+		<module>sample_guice</module>
+		<module>sample_guice_servlet</module>
     <module>sample_jaxws</module>
     <module>sample_spring_security</module>
-		<module>sample_guice</module>
 		<module>sample_jmx</module>
+		<module>sample_ceph</module>
   </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
