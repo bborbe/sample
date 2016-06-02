@@ -11,7 +11,7 @@ public class HelloController {
 	@RequestMapping(value = {"/", "/welcome**"}, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
 
-		ModelAndView model = new ModelAndView();
+		final ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is welcome page!");
 		model.setViewName("hello");
@@ -22,7 +22,7 @@ public class HelloController {
 	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
 	public ModelAndView adminPage() {
 
-		ModelAndView model = new ModelAndView();
+		final ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is protected page - Admin Page!");
 		model.setViewName("admin");
@@ -34,7 +34,7 @@ public class HelloController {
 	@RequestMapping(value = "/dba**", method = RequestMethod.GET)
 	public ModelAndView dbaPage() {
 
-		ModelAndView model = new ModelAndView();
+		final ModelAndView model = new ModelAndView();
 		model.addObject("title", "Spring Security Hello World");
 		model.addObject("message", "This is protected page - Database Page!");
 		model.setViewName("admin");
