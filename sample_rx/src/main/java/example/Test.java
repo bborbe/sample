@@ -27,6 +27,9 @@ public class Test {
 	}
 
 	private static Observable<String> getUsernames() {
-		return null;
+		return Observable.create(subscriber -> {
+			subscriber.onNext("asf");
+			subscriber.onCompleted();
+		});
 	}
 }
